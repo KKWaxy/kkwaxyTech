@@ -1,0 +1,56 @@
+{% extends 'kkwaxyApp/base.html' %}
+{% block app-header %}
+    <nav class="navbar navbar-expand-sm navbar-light shadow-sm">
+        <!-- Brand -->
+        {% load static %}
+        <a class="navbar-brand ms-5 logo" href="{% url 'index' %}"> 
+            {% comment %} <img src="{% static 'imobApp/assets/SEDD_Logo.png' %}" alt="" class="" width="100px" height="50px" srcset="">  {% endcomment %}
+            <span><strong style="color: #03031f; ">kkwaxy</strong><span style="color: #FF4F04;">Tech</span>.</span>
+        </a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        {% block app-header-links %}
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                {% comment %} <form class="form-inline nav-item ms-auto" method="post" action="{% url 'search' %}">
+                        {% csrf_token %}
+                
+                        <button class="btn-success rounded" type="submit"><i class="fas fa-search"></i>Rechercher</button>
+                </form>      {% endcomment %}
+                {% block authenticate %}
+                    <ul class="navbar-nav me-2 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">S'inscrire</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item border-start">
+                            <a class="nav-link" href="#">Se connecter</a>
+                        </li>
+                    </ul>
+                {% endblock authenticate %}
+        </div>
+        {% endblock app-header-links %}
+    </nav>  
+{% endblock app-header %}
+{% block app-main %}
+    <main class="container">
+        <section class="row d-flex rounded mt-3">
+            <article class="col-9 shadow-sm border-1 rounded-3 d-flex pl-0 pb-0 pt-0">
+                <div class="media p-0">
+                    <img class="align-self-center rounded mt-0 mb-0 ml-0 mr-3" src="https://via.placeholder.com/200.png/" alt="Generic placeholder image">
+                    <div class="media-body">
+                      <h5 class="mt-0" ><a href="#" style="color:#03031f;">Top-aligned media</a> <small><a href="#" class=" text-muted">#category</a></small></h5>
+                      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                      <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                      <span class=" float-end "><small class="text-muted"> <em>by </em><a href="#" style="color:#e26702;">kkwaxy,</a> November 26, 2018</small></span>
+                    </div>
+                  </div>
+            </article>
+            <aside class=" col-3"></aside>
+        </section>
+    </main>
+{% endblock app-main %}
