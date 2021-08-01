@@ -1,11 +1,12 @@
 {% extends 'kkwaxyApp/base.html' %}
+{% load blog_extras %}
 {% block app-header %}
-    <nav class="navbar navbar-expand-sm navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-sm navbar-dark shadow-sm" style="background-color: #03031f;" >
         <!-- Brand -->
         {% load static %}
         <a class="navbar-brand ms-5 logo" href="{% url 'index' %}"> 
             {% comment %} <img src="{% static 'imobApp/assets/SEDD_Logo.png' %}" alt="" class="" width="100px" height="50px" srcset="">  {% endcomment %}
-            <span><strong style="color: #03031f; ">kkwaxy</strong><span style="color: #FF4F04;">Tech</span>.</span>
+            <span style="color: white;"><strong style="color: white; ">kkwaxy</strong><span style="color: #FF4F04;">Tech</span>.</span>
         </a>
 
         <!-- Toggler/collapsibe Button -->
@@ -26,8 +27,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">S'inscrire</a>
                         </li>
-                        <hr>
-                        <li class="nav-item border-start">
+                        
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Se connecter</a>
                         </li>
                     </ul>
@@ -39,16 +40,24 @@
 {% block app-main %}
     <main class="container">
         <section class="row d-flex rounded mt-3">
-            <article class="col-9 shadow-sm border-1 rounded-3 d-flex pl-0 pb-0 pt-0">
-                <div class="media p-0">
-                    <img class="align-self-center rounded mt-0 mb-0 ml-0 mr-3" src="https://via.placeholder.com/200.png/" alt="Generic placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0" ><a href="#" style="color:#03031f;">Top-aligned media</a> <small><a href="#" class=" text-muted">#category</a></small></h5>
-                      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                      <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                      <span class=" float-end "><small class="text-muted"> <em>by </em><a href="#" style="color:#e26702;">kkwaxy,</a> November 26, 2018</small></span>
-                    </div>
-            </article>
+            {% for post in latest_posts  %}
+                <article class="col-9  pl-0 pb-0 pt-0 mb-5">
+                <div class="border shadow-sm rounded-3 m-0 p-3">
+                    <div class="media p-0">
+                        <a href="{{post.get_absolute_url}}" class="align-self-center p-0 m-0"><img class="align-self-center img-thumbnail border-0 rounded mt-0 mb-0 ml-0 mr-3" src="{{post.media.url}}" width="200" height="200" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+                          <h5 class="mt-0" ><a href="{{post.get_absolute_url}}" style="color:#03031f;">{{post.title}}</a> <small><a href="#" class=" text-muted">. category</a></small></h5>
+                          <p>{{post.intro | capfirst | wordwrap:50|convert_markdown|safe}}</p>
+                            <br>
+                            <a href="{{post.get_absolute_url}}" class=" rounded-pill p-2 align-self-end text-center text-light" style="background-color: #e26702;color:white" > Lire plus...</a>
+                          <span class=" float-end "><small class="text-muted"> <em>by </em><a href="#" style="color:#e26702;">{{post.author}},</a><strong>created</strong> {{post.created_date}}, <strong>updated</strong> {{post.updated_date}}</small></span>
+                        </div>
+                </div>
+                </article>
+            {% empty %}
+                <h5 style="color: #FF4F04;">SORRY POST NOT AVAILLABLED</h5>
+            {% endfor %}
             <aside class=" col-3"></aside>
         </section>
     </main>

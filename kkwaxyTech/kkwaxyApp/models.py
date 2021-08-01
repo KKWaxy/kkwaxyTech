@@ -6,10 +6,10 @@ from django.utils.translation import gettext_lazy as _
 class Post(models.Model):
     
     title = models.CharField(_("Title"),null=False,blank=False,max_length=150)
-    article = models.TextField(_("Arcticle"),max_length=500)
+    intro = models.TextField(_("Introduction"),max_length=500,null=False,blank=False)
+    body = models.TextField(_("Body"), null=False,blank=False)
     media = models.FileField(_("Media"),upload_to="kkwaxyApp\\images")
-    author = models.OneToOneField(User,on_delete=models.DO_NOTHING)
-    #comment = models.TextField(_("Comment"))
+    author = models.ForeignKey(User,on_delete=models.DO_NOTHING)
     updated_date = models.DateTimeField(_("Created"),auto_now=True)
     created_date = models.DateTimeField(_("Updated"),auto_now_add=True)
     
@@ -21,7 +21,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("Post_detail", kwargs={"pk": self.pk})
+        return reverse("post_detail", kwargs={"pk": self.pk})
 
 
         
