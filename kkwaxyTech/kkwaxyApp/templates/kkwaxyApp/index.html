@@ -4,9 +4,11 @@
     <nav class="navbar navbar-expand-sm navbar-dark shadow-sm" style="background-color: #03031f;" >
         <!-- Brand -->
         {% load static %}
-        <a class="navbar-brand ms-5 logo" href="{% url 'index' %}"> 
-            {% comment %} <img src="{% static 'imobApp/assets/SEDD_Logo.png' %}" alt="" class="" width="100px" height="50px" srcset="">  {% endcomment %}
-            <span style="color: white;"><strong style="color: white; ">kkwaxy</strong><span style="color: #FF4F04;">Tech</span>.</span>
+        <a class="navbar-brand ms-2 me-auto" href="{% url 'index' %}"> 
+            <div class=" logo-div">
+                <img src="{% static 'kkwaxyApp/assets/SVG/logo-etendu.svg' %}" alt="" class="" width="300px" height="50px" srcset=""> 
+            </div>
+            {% comment %} <span style="color: white;"><strong style="color: white; ">kkwaxy</strong><span style="color: #FF4F04;">Tech</span>.</span> {% endcomment %}
         </a>
 
         <!-- Toggler/collapsibe Button -->
@@ -44,7 +46,7 @@
                 <article class="col-9  pl-0 pb-0 pt-0 mb-5">
                 <div class="border shadow-sm rounded-3 m-0 p-3">
                     <div class="media p-0">
-                        <a href="{{post.get_absolute_url}}" class="align-self-center p-0 m-0"><img class="align-self-center img-thumbnail border-0 rounded mt-0 mb-0 ml-0 mr-3" src="{{post.media.url}}" width="200" height="200" alt="Generic placeholder image">
+                        <a href="{{post.get_absolute_url}}" class="align-self-center p-0 m-0"><img class="align-self-center img-thumbnail border-0 rounded border mt-0 mb-0 ml-0 mr-3 post-media-mini" src="{{post.media.url}}" width="200" height="200" alt="Generic placeholder image">
                         </a>
                         <div class="media-body">
                           <h5 class="mt-0" ><a href="{{post.get_absolute_url}}" style="color:#03031f;">{{post.title}}</a> <small><a href="#" class=" text-muted">. category</a></small></h5>

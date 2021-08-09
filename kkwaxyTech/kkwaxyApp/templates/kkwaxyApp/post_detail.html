@@ -1,4 +1,46 @@
 {% extends 'kkwaxyApp/index.html' %}
+{% load static %}
+{% block other-css %}
+<link rel="stylesheet" href="{% static 'kkwaxyApp/post-detail-style.css' %}">
+{% endblock other-css %}
 {% block app-main %}
-<h3>{{object.title}}</h3>
+   <main class="">
+    {% block post-meta %}
+        <section class="row post-meta">
+            <article class="col-12 d-flex justify-content-center">
+                <img src="{{object.media.url}}" alt="" srcset="" class="post-media">
+                <div class="linear-gradient"></div>
+                <h3 class="post-title text-light">{{object.title|upper}}</h3>
+                <span class="post-meta-data">
+                    <small class="text-light">
+                        <em>by 
+                        </em>
+                        <a href="#" style="color:#e26702;">
+                            {{post.author}},
+                        </a>
+                        <strong>created</strong> 
+                        {{post.created_date}}, 
+                        <strong>updated</strong> 
+                        {{post.updated_date}}
+                    </small>
+                </span>
+            </article>
+            <aside>
+                
+            </aside>
+        </section>
+    {% endblock post-meta %}
+    
+    {% block post-media %}
+    {% endblock post-media %}
+    
+    {% block post-intro %}
+    {% endblock post-intro %}
+    
+    {% block post-body %}
+    {% endblock post-body %}
+    
+    {% block post-con %}
+    {% endblock post-con %}
+   </main>
 {% endblock app-main %}
