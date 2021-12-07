@@ -1,5 +1,6 @@
 {% extends 'kkwaxyApp/index.html' %}
 {% load static %}
+{% load blog_extras %}
 {% block other-css %}
 <link rel="stylesheet" href="{% static 'kkwaxyApp/post-detail-style.css' %}">
 {% endblock other-css %}
@@ -8,7 +9,7 @@
     {% block post-meta %}
         <section class="row post-meta">
             <article class="col-12 d-flex justify-content-center">
-                <img src="{{object.media.url}}" alt="" srcset="" class="post-media">
+                <img src="{{object.media.url}}" alt="" srcset="" class="post-media" >
                 <div class="linear-gradient"></div>
                 <h3 class="post-title text-light">{{object.title|upper}}</h3>
                 <span class="post-meta-data">
@@ -33,7 +34,11 @@
     
     {% block post-media %}
     {% endblock post-media %}
-    
+        <section class="row mt-3">
+            <div class="container">
+                {{post.intro|convert_markdown|safe}}
+            </div>
+        </section>
     {% block post-intro %}
     {% endblock post-intro %}
     
@@ -41,6 +46,6 @@
     {% endblock post-body %}
     
     {% block post-con %}
-    {% endblock post-con %}
+    {% endblock post-con %}                                                                                                                                                                                                                                                                         
    </main>
 {% endblock app-main %}

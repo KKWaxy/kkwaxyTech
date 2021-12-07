@@ -9,8 +9,7 @@ register = template.Library()
 def convert_markdown(value):
     return markdown.markdown(value,extensions=["markdown.extensions.fenced_code"])
 
-# @register.filter
-# def crop_post_media(value):
-#     print(value)
-#     with Image.open(value) as im:
-#         return(im.crop(789.615,))
+@register.filter
+def intro_wrap(value):
+    value = str(value)[0:250]+"..."
+    return value

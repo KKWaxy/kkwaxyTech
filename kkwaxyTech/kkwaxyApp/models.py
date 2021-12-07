@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class Post(models.Model):
     
     title = models.CharField(_("Title"),null=False,blank=False,max_length=150)
-    intro = models.TextField(_("Introduction"),max_length=500,null=False,blank=False)
+    intro = models.TextField(_("Introduction"),null=False,blank=False)
     body = models.TextField(_("Body"), null=False,blank=False)
     media = models.FileField(_("Media"),upload_to="kkwaxyApp\\images")
     author = models.ForeignKey(User,on_delete=models.DO_NOTHING)
