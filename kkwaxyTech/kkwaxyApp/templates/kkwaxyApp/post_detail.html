@@ -5,26 +5,28 @@
 <link rel="stylesheet" href="{% static 'kkwaxyApp/post-detail-style.css' %}">
 {% endblock other-css %}
 {% block app-main %}
-   <main class="">
+   <main class="container mt-2">
     {% block post-meta %}
         <section class="row post-meta">
-            <article class="col-12 d-flex justify-content-center">
+            <article class="col-12 d-flex justify-content-center post-detail">
+                <div class="post-text">
+                    <div class="linear-gradient"></div>
+                    <h3 class="post-title text-light">{{object.title|upper}}</h3>
+                    <span class="post-meta-data">
+                        <small class="text-light">
+                            <em>by 
+                            </em>
+                            <a href="#" style="color:#e26702;">
+                                {{post.author}},
+                            </a>
+                            <strong>created</strong> 
+                            {{post.created_date}}, 
+                            <strong>updated</strong> 
+                            {{post.updated_date}}
+                        </small>
+                    </span>
+                </div>
                 <img src="{{object.media.url}}" alt="" srcset="" class="post-media" >
-                <div class="linear-gradient"></div>
-                <h3 class="post-title text-light">{{object.title|upper}}</h3>
-                <span class="post-meta-data">
-                    <small class="text-light">
-                        <em>by 
-                        </em>
-                        <a href="#" style="color:#e26702;">
-                            {{post.author}},
-                        </a>
-                        <strong>created</strong> 
-                        {{post.created_date}}, 
-                        <strong>updated</strong> 
-                        {{post.updated_date}}
-                    </small>
-                </span>
             </article>
             <aside>
                 
