@@ -14,7 +14,11 @@
                         <a href="{{post.get_absolute_url}}" class="align-self-center p-0 m-0"><img class="align-self-center img-thumbnail border-0 rounded border mt-0 mb-0 ml-0 mr-3 post-media-mini" src="{{post.media.url}}" width="200" height="200" alt="Generic placeholder image">
                         </a>
                         <div class="media-body">
-                            <h5 class="mt-0" ><a href="{{post.get_absolute_url}} " style="color:#03031f;">{{post.title}}</a> <small><a href="#" class=" text-muted">. category</a></small></h5>
+                            <h5 class="mt-0" >
+                                
+                                <a href="{{post.get_absolute_url}} " style="color:#03031f;">{{post.title}}</a>
+                            </h5>
+                            <hr>
                             <p class="post-intro">{{post.intro |intro_wrap| convert_markdown|safe}}</p>
                             <br>
                             {% comment %} <a href="{{post.get_absolute_url}}" class="btn btn-sm m-0 rounded-pill p-2 align-self-end text-center text-light" style="background-color: #e26702;color:white" > Lire plus...</a> {% endcomment %}
