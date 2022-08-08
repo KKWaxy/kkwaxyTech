@@ -45,6 +45,7 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "kkwaxyTech/post_detail"
+        context["search_form"] = form
         return context
 
 class PostListView(ListView):
@@ -55,3 +56,4 @@ class CreatePostView(CreateView):
     model = Post
     fields = ['title','intro','body','media']
     template_name_suffix = '_create_form.html'
+    

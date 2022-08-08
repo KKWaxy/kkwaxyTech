@@ -22,6 +22,11 @@ body{
     border: solid 2px ;
 }
 .search-form{
+    display: flex;
+    flex-direction: row;
+    
+}
+.search-form-input{
     background-color: #030327;
     margin: 0;
     padding: 0px 0px 0px 20px;
@@ -32,6 +37,10 @@ body{
     border: #17175f;
     border-radius: 25px ;
     border: #08084b solid 2px;
+}
+.search-form-button{
+    color: aliceblue;
+    background-color: #030327;
 }
 .search-form::content{
     display: block;

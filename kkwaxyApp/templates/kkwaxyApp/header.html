@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-sm navbar-dark sticky-to shadow-sm" style="background-color: #03031f;" >
+<nav class="navbar navbar-expand-sm navbar-dark sticky-top shadow-sm" style="background-color: #03031f;" >
         <!-- Brand -->
         <a class="navbar-brand ms-2" href="{% url 'index' %}"> 
             <div class="logo-div">
@@ -15,9 +15,12 @@
         <!-- Navbar links -->
         {% block app-header-links %}
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <form class="w-50 h-75 nav-item ms-auto" method="post" action="{% url 'search' %}">
+                <form class="w-50 h-75 search-form nav-item ms-auto" method="post" action="{% url 'search' %}">
                         {% csrf_token %}
-                            {{search_form}}
+                        {{search_form}}
+                        <button type="submit" class="input-group-text search-form-button ml-auto border-0" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </button>
                         {% comment %} <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend3">Rechercher</span>
