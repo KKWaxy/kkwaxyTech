@@ -9,6 +9,9 @@ html{
     font-style: var(--primary-color) normal;
     font-size: calc(15);
 }
+body{
+    background-color: rgb(244, 239, 234);
+}
 .post-media-mini{
     width: "100 px";
     height: "200 px";
@@ -29,4 +32,10 @@ html{
     border: #17175f;
     border-radius: 25px ;
     border: #08084b solid 2px;
+}
+.search-form::content{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
 }

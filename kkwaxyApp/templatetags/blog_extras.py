@@ -1,7 +1,6 @@
 import markdown
 from django import template
-from django.template.defaultfilters import register, stringfilter
-from PIL import Image
+from django.template.defaultfilters import register
 
 register = template.Library()
 

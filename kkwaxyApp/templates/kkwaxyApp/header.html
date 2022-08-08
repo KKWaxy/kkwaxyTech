@@ -15,7 +15,7 @@
         <!-- Navbar links -->
         {% block app-header-links %}
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <form class="w-75 h-75 nav-item ms-auto" method="post" action="{% url 'search' %}">
+                <form class="w-50 h-75 nav-item ms-auto" method="post" action="{% url 'search' %}">
                         {% csrf_token %}
                             {{search_form}}
                         {% comment %} <div class="input-group">
