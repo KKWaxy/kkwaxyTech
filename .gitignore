@@ -1,3 +1,2 @@
-kkwaxyApp/__pycache__/*
-kkwaxyApp/migrations/*
-kkwaxyTech/__pycache__/*
+**/__pycache__
+**/migrations
