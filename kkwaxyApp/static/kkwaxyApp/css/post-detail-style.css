@@ -1,5 +1,5 @@
 .post-meta{
-    display: block; 
+    display: block;
 }
 .linear-gradient{
     display: block;
@@ -8,8 +8,10 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: -2;
     left: 0%;
+    border-radius: 5px;
+    /* border: solid; */
     background-image: linear-gradient(to bottom right,#03031F,#03031f00);
 }
 .post-media{
@@ -20,7 +22,7 @@
     top: 5%;
     width: 200px;
     height: 200px;
-    z-index: 1;
+    z-index: -10;
     background-origin: padding-box;
     
 }

@@ -21,27 +21,24 @@
                         <button type="submit" class="input-group-text search-form-button ml-auto border-0" id="search-addon">
                             <i class="fas fa-search"></i>
                         </button>
-                        {% comment %} <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend3">Rechercher</span>
-                            </div>
-                            <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
-                            <div class="invalid-feedback">
-                                Recherche
-                            </div>
-                        </div> {% endcomment %}
-                        {% comment %} <button class="btn-success rounded" type="submit"><i class="fas fa-search"></i>Rechercher</button>  {% endcomment %}
-                </form> 
+               </form> 
                 {% block authenticate %}
-                    
                     <ul class="navbar-nav ml-auto">
-                        {% comment %} <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link media" href="#">
+                                <div class="media-body">
+                                    <h6 class="m-0">Wilfried KOUASSI</h6>
+                                </div>
+                                <img class="ml-3" src="..." alt="me">
+                            </a>
+                        </li>
+                         {% comment %} <li class="nav-item">
                             <a class="nav-link" href="#">S'inscrire</a>
                         </li>
                         
                         <li class="nav-item">
                             <a class="nav-link" href="#">Se connecter</a>
-                        </li> {% endcomment %}
+                        </li>  {% endcomment %}
                     </ul>
                 {% endblock authenticate %}
         </div>

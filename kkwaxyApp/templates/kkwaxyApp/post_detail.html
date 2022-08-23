@@ -1,16 +1,13 @@
 {% extends 'kkwaxyApp/index.html' %}
 {% load static %}
 {% load blog_extras %}
-{% block other-css %}
-<link rel="stylesheet" href="{% static 'kkwaxyApp/post-detail-style.css' %}">
-{% endblock other-css %}
 
 {% block app-main %}
    <main class="container mt-2">
     {% block post-meta %}
         <section class="row post-meta">
-            <article class="col-12 d-flex justify-content-center post-detail">
-                <div class="post-text">
+            <article class="col-12 d-flex justify-content-center rounded post-detail">
+                <div class="post-text rounded">
                     <div class="linear-gradient"></div>
                     <h1 class="post-title text-light">{{object.title|upper}}</h2>
                     <span class="post-meta-data">

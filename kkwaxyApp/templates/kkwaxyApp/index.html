@@ -38,11 +38,49 @@
                             </span>
                         </div>
                     </div>
-                </article>
-                {% empty %}
+            </article>
+            {% empty %}
                 <h5 style="color: #FF4F04;">SORRY POST NOT AVAILLABLED</h5>
-                {% endfor %}
-                <aside class=" col-3"></aside>
-            </section>
+            {% endfor %}
+            <aside class=" col-3">
+                <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <!-- Tags sidebar -->
+    <!-- <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <h6 class="text-center ">Les meilleurs Tag</h6>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          Nouveautés
+        </a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
+        >
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a
+        >
+      </div>
+    </div> -->
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <h6 class="text-center bold">Tous les <strong>tags</strong></h6>
+        <div class="d-flex flex-wrap align-items-start p-0 mb-3 ">
+          {% for tag in tags.all %}
+            <a href="#">
+              <small class="badge rounded badge-info m-0">
+                {{tag}}
+              </small>
+            </a>
+          {% endfor %}
+      </div>
+        
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+            </aside>
+        </section>
     </main>
 {% endblock app-main %}

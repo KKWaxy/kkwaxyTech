@@ -1,11 +1,16 @@
+from operator import pos
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.base import TemplateView
 
 from .forms import SearchForm
-from .models import Post
+from .models import Post,Tag
 
 form  = SearchForm()
+tags = Tag.objects.all()
+
+class BaseView(TemplateView):
+    pass
 
 class SearchView(TemplateView):
     
@@ -18,6 +23,10 @@ class SearchView(TemplateView):
             search_kwrd = request.POST["search_terms"]
             if(search_kwrd != None and search_kwrd != ""):
                 posts = Post.objects.all().filter(title__icontains=search_kwrd)
+                if not posts:
+                    posts = Post.objects.filter(intro__icontains=search_kwrd)
+                if not posts:
+                    print("Tags search")
             ctx["posts"] = posts
         return render(request,self.template_name,context=ctx)
 
@@ -35,6 +44,7 @@ class IndexView(TemplateView):
         context["title"] = "Accueil"
         context['posts'] = Post.objects.all()[:5]
         context["search_form"] = form
+        context["tags"] = Tag.objects.all()[:5]
         return context
 
 
@@ -48,12 +58,4 @@ class PostDetailView(DetailView):
         context["search_form"] = form
         return context
 
-class PostListView(ListView):
-    model = Post
-    template_name = "index.html"
-
-class CreatePostView(CreateView):
-    model = Post
-    fields = ['title','intro','body','media']
-    template_name_suffix = '_create_form.html'
     
