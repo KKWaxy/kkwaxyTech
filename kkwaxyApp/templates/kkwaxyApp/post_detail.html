@@ -3,26 +3,29 @@
 {% load blog_extras %}
 
 {% block app-main %}
-   <main class="container mt-2">
+   <main class="container-fluid">
     {% block post-meta %}
         <section class="row post-meta">
-            <article class="col-12 d-flex justify-content-center rounded post-detail">
-                <div class="post-text rounded">
+            <article class="col-12 d-flex justify-content-center post-detail">
+                <div class="post-text">
                     <div class="linear-gradient"></div>
-                    <h1 class="post-title text-light">{{object.title|upper}}</h2>
-                    <span class="post-meta-data">
-                        <small class="text-light">
-                            <em>by 
-                            </em>
-                            <a href="#" style="color:#e26702;">
-                                {{post.author}},
-                            </a>
-                            <strong>created</strong> 
-                            {{post.created_date}}, 
-                            <strong>updated</strong> 
-                            {{post.updated_date}}
-                        </small>
-                    </span>
+                    
+                    <div class="container">
+                        <h1 class="post-title text-light">{{object.title|upper}}</h2>
+                            <span class="post-meta-data">
+                                <small class="text-light">
+                                    <em>by 
+                                    </em>
+                                    <a href="#" style="color:#e26702;">
+                                        {{post.author}},
+                                    </a>
+                                    <strong>created</strong> 
+                                    {{post.created_date}}, 
+                                    <strong>updated</strong> 
+                                    {{post.updated_date}}
+                                </small>
+                            </span>
+                    </div>
                 </div>
                 <img src="{{object.media.url}}" alt="" srcset="" class="post-media" >
             </article>
@@ -43,7 +46,7 @@
     
     {% block post-body %}
         <section class="row mt-2">
-            <div class="container col-11">
+            <div class="container col-10">
                 {{post.body|convert_markdown|safe}}
             </div>
         </section>
@@ -53,3 +56,6 @@
     {% endblock post-con %}                                                                                                                                                                                                                                                                         
    </main>
 {% endblock app-main %}
+{% block more-scripts %}
+   <script type="module" src="{% static 'kkwaxyApp/js/utils/md_parser.js' %}"></script>
+{% endblock more-scripts %}

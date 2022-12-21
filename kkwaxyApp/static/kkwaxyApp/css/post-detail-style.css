@@ -10,7 +10,7 @@
     width: 100%;
     z-index: -2;
     left: 0%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     /* border: solid; */
     background-image: linear-gradient(to bottom right,#03031F,#03031f00);
 }
